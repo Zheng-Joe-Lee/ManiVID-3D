@@ -8,7 +8,7 @@
 <sup>†</sup> Corresponding Author
 
 [![arXiv](https://img.shields.io/badge/arXiv-2509.11125-b31b1b.svg)](https://arxiv.org/abs/2509.11125v2)
-![RAL](https://img.shields.io/badge/RAL-2026-blue.svg)
+[![RAL](https://img.shields.io/badge/RAL-2026-blue.svg)](https://doi.org/10.1109/LRA.2026.3662647)
 [![project](https://img.shields.io/badge/Project-Page-green.svg)](https://zheng-joe-lee.github.io/manivid3d/)
 
 
