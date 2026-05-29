@@ -49,7 +49,6 @@ Before running experiments, update the following paths and settings as needed:
 | ViewNet training | `viewnet/config_viewnet.py` | `workspace_dir`, `task_name` |
 | ViewNet testing | `viewnet/test_viewnet.py` | `checkpoint_path` |
 | ManiVID-3D evaluation | `mani_eval.py` | `model_path` |
-| Enable ViewNet at eval | `cfgs/camera_aug_config_pc.yaml` | `use_viewnet` |
 | ViewNet checkpoint | `dmc.py` | `viewnet_path` |
 | Task name | `scripts/collect_data.sh`, `scripts/train.sh`, `scripts/eval.sh` | `task_name` |
 
