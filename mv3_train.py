@@ -258,7 +258,7 @@ class Workspace:
 
 @hydra.main(config_path='cfgs', config_name='camera_aug_config_pc')
 def main(cfg):
-    from camera_train import Workspace as W
+    from mv3_train import Workspace as W
     root_dir = Path.cwd()
     workspace = W(cfg)
     snapshot = root_dir / 'snapshot.pt'

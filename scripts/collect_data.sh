@@ -9,7 +9,7 @@ lr_stn=1e-4
 use_traj=False
 
 
-#CUDA_VISIBLE_DEVICES=0  python -m memory_profiler camera_train.py \
+#CUDA_VISIBLE_DEVICES=0  python -m memory_profiler mv3_train.py \
 CUDA_VISIBLE_DEVICES=0  python viewnet/collect_data.py \
                             task=${task_name} \
                             seed=1 \

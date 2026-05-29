@@ -8,8 +8,8 @@ save_video=False
 lr_stn=1e-4
 use_traj=False
 
-#CUDA_VISIBLE_DEVICES=0  python -m memory_profiler camera_train.py \
-CUDA_VISIBLE_DEVICES=0  python camera_train.py \
+#CUDA_VISIBLE_DEVICES=0  python -m memory_profiler mv3_train.py \
+CUDA_VISIBLE_DEVICES=0  python mv3_train.py \
                             task=${task_name} \
                             seed=1 \
                             use_wandb=${use_wandb} \
