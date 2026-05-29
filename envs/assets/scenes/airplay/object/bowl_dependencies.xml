@@ -1,0 +1,42 @@
+<mujocoinclude>
+
+  <asset>
+    <mesh name="bowl_part_0" file="part_0.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_1" file="part_1.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_2" file="part_2.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_3" file="part_3.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_4" file="part_4.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_5" file="part_5.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_6" file="part_6.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_7" file="part_7.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_8" file="part_8.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_9" file="part_9.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_10" file="part_10.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_11" file="part_11.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_12" file="part_12.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_13" file="part_13.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_14" file="part_14.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_15" file="part_15.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_16" file="part_16.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_17" file="part_17.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_18" file="part_18.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_19" file="part_19.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_20" file="part_20.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_21" file="part_21.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_22" file="part_22.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_23" file="part_23.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_24" file="part_24.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_25" file="part_25.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_26" file="part_26.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_27" file="part_27.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_28" file="part_28.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_29" file="part_29.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_30" file="part_30.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_31" file="part_31.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_32" file="part_32.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_33" file="part_33.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_34" file="part_34.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_35" file="part_35.STL" scale="1 1 1"/>
+    <mesh name="bowl_part_36" file="part_36.STL" scale="1 1 1"/>
+  </asset>
+</mujocoinclude>

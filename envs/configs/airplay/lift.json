@@ -1,0 +1,54 @@
+{
+    "env": "airplay_lift",
+    "xml": "assets/scenes/airplay/block_lift.xml",
+    "assets": [
+        "assets/scenes/airplay/scene/scene.xml",
+        "assets/airbot_airplay/airbot_play_control.xml",
+        "assets/airbot_airplay/airbot_play_dependencies.xml",
+        "assets/airbot_airplay/airbot_play_options.xml",
+
+        "assets/airbot_airplay/airbot_play-simple_collision.xml",
+
+        "assets/scenes/airplay/object/bowl_dependencies.xml",
+        "assets/scenes/airplay/object/table_cloth_dependencies.xml",
+
+        "assets/scenes/assets/meshes_discoverse/airbot_play",
+        "assets/scenes/assets/meshes_discoverse/stl/bowl",
+        "assets/scenes/assets/meshes_discoverse/obj/table_cloth",
+        "assets/scenes/assets/textures_discoverse/airbot_play",
+        "assets/scenes/assets/textures_discoverse/obj/table_cloth"
+    ],
+    "scheduler": {
+        "type": "ExpScheduler",
+        "gamma": 0.995,
+        "latency": 300
+    },
+    "control_params": {
+        "action_delay": {
+            "min_val": 0,
+            "max_val": 2,
+            "enable": false
+        },
+        "control_timestep": {
+            "min_val": 0.016,
+            "max_val": 0.024,
+            "enable": false
+        }
+    },
+    "physics_params": {
+        "camera": [
+            {
+                "identifier": "track_cam",
+                "attr": "pos",
+                "mode": "circle",
+                "initial_point": [-0.52, 0, 1.0],
+                "circle_center": [0.20, 0, 0.95],
+                "default_val": [0, 0, 1],
+                "min_val": [-70, -5, 0.95],
+                "max_val": [70, 5, 1.05],
+                "schedule": false,
+                "enable": true
+            }
+        ]
+    }
+}

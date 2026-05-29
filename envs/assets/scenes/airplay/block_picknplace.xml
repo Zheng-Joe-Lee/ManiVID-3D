@@ -1,0 +1,335 @@
+<mujoco model="block_picknplace">
+
+  <include file="scene.xml"/>
+  <!-- <include file="airbot_play_options.xml"/> -->
+  <include file="airbot_play_dependencies.xml"/>
+  <include file="bowl_dependencies.xml"/>
+
+  <compiler meshdir="meshes_discoverse/" texturedir="textures_discoverse/"/>
+  <include file="table_cloth_dependencies.xml"/>
+
+  <default>
+    <default class="obj_visual">
+      <geom group="2" type="mesh" contype="0" conaffinity="0"/>
+    </default>
+    <default class="obj_collision">
+      <geom group="3" condim="6" solimp="2 1 0.01" solref="0.001 10" friction="1 0.005 0.0001" type="mesh"/>
+    </default>
+    <default class="grab">
+      <!-- <joint limited="false" margin="0.01" armature="0.001" damping="0" frictionloss="0.001" /> -->
+      <geom type="mesh" contype="0" conaffinity="0"/>
+      <!-- <site size="0.005 0 0" rgba="0.4 0.9 0.4 1" /> -->
+      <default class="object_col">
+        <geom type="mesh" density="1250" contype="1" conaffinity="1" friction="1 0.5 0.01" margin="0.0005" condim="4" rgba=".3 .4 .5 1" group="3"/>
+      </default>
+    </default>
+  </default>
+
+  <asset>
+    <mesh name="bowl" file="bowl.stl"/>
+    <mesh name="contact0" file="contact0.stl"/>
+    <mesh name="contact1" file="contact1.stl"/>
+    <mesh name="contact2" file="contact2.stl"/>
+    <mesh name="contact3" file="contact3.stl"/>
+    <mesh name="contact4" file="contact4.stl"/>
+    <mesh name="contact5" file="contact5.stl"/>
+    <mesh name="contact6" file="contact6.stl"/>
+    <mesh name="contact7" file="contact7.stl"/>
+    <mesh name="contact8" file="contact8.stl"/>
+    <mesh name="contact9" file="contact9.stl"/>
+    <mesh name="contact10" file="contact10.stl"/>
+    <mesh name="contact11" file="contact11.stl"/>
+
+    <material name="bowl_visual" rgba="0.65 0.65 0.55 1" specular="0.5" shininess="0.5"/>
+  </asset>
+
+  <worldbody>
+
+    <!-- ======= EYE SIDE ======= -->
+    <!-- <camera name="eye_side" fovy="72.02" pos="-0.324 0.697 1.02" xyaxes=" 0.828 -0.561 0.    0.394 0.582 0.702"/> -->
+
+    <!-- ======= block ======= -->
+    <body name="block_green" pos="0.00 -0.05 0.7145">
+      <!-- <joint type="free" frictionloss="0.00001"/> -->
+      <freejoint name="object_anchor"/>
+      <inertial pos="0 0 0" mass="0.001" diaginertia="1e-7 1e-7 1e-7" />
+      <geom name="object_block" rgba="0.21 0.36 0.21 1" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" pos="0 0 0" size="0.018 0.018 0.018" type="box"/>
+      <site name="object_site" pos="0 0 0" size="0.001" rgba="0 0 0 0"/>
+    </body>
+    
+
+    <!-- ======= bowl ======= -->
+    <body name="bowl" pos="-0.05 0.15 0.74">
+      <inertial pos="0 0 0" mass="0.001" diaginertia="0.00002 0.00002 0.00002" />
+      <geom name="bowl_visual" mesh="bowl" class="grab" material="bowl_visual"/>
+      <geom name="bowl_contact0" mesh="contact0" class="object_col"/>
+      <geom name="bowl_contact1" mesh="contact1" class="object_col"/>
+      <geom name="bowl_contact2" mesh="contact2" class="object_col"/>
+      <geom name="bowl_contact3" mesh="contact3" class="object_col"/>
+      <geom name="bowl_contact4" mesh="contact4" class="object_col"/>
+      <geom name="bowl_contact5" mesh="contact5" class="object_col"/>
+      <geom name="bowl_contact6" mesh="contact6" class="object_col"/>
+      <geom name="bowl_contact7" mesh="contact7" class="object_col"/>
+      <geom name="bowl_contact8" mesh="contact8" class="object_col"/>
+      <geom name="bowl_contact9" mesh="contact9" class="object_col"/>
+      <geom name="bowl_contact10" mesh="contact10" class="object_col"/>
+      <geom name="bowl_contact11" mesh="contact11" class="object_col"/>
+
+      <freejoint name="bowl_anchor"/>
+      <site name="bowl_site" pos="0 0 0" size="0.001" rgba="0 0 0 0"/>
+    </body>
+    
+    <!-- <body name="bowl_pink" pos="0.00 0.15 0.7145"> -->
+      <!-- <joint type="free" frictionloss="0.0002"/> -->
+      <!-- <inertial pos="0 0 0" mass="0.001" diaginertia="0.00002 0.00002 0.00002" /> -->
+      <!-- <geom size="0.04 0.0002" pos="0 0 0" quat="0 1 0 0" type="cylinder" rgba="0.5 0.5 0 0.5"/> -->
+      <!-- <geom name="bowl_contact0" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_0"/>
+      <geom name="bowl_contact1" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_1"/>
+      <geom name="bowl_contact2" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_2"/>
+      <geom name="bowl_contact3" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_3"/>
+      <geom name="bowl_contact4" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_4"/>
+      <geom name="bowl_contact5" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_5"/>
+      <geom name="bowl_contact6" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_6"/>
+      <geom name="bowl_contact7" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_7"/>
+      <geom name="bowl_contact8" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_8"/>
+      <geom name="bowl_contact9" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_9"/>
+      <geom name="bowl_contact10" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_10"/>
+      <geom name="bowl_contact11" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_11"/>
+      <geom name="bowl_contact12" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_12"/>
+      <geom name="bowl_contact13" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_13"/>
+      <geom name="bowl_contact14" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_14"/>
+      <geom name="bowl_contact15" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_15"/>
+      <geom name="bowl_contact16" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_16"/>
+      <geom name="bowl_contact17" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_17"/>
+      <geom name="bowl_contact18" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_18"/>
+      <geom name="bowl_contact19" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_19"/>
+      <geom name="bowl_contact20" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_20"/>
+      <geom name="bowl_contact21" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_21"/>
+      <geom name="bowl_contact22" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_22"/>
+      <geom name="bowl_contact23" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_23"/>
+      <geom name="bowl_contact24" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_24"/>
+      <geom name="bowl_contact25" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_25"/>
+      <geom name="bowl_contact26" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_26"/>
+      <geom name="bowl_contact27" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_27"/>
+      <geom name="bowl_contact28" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_28"/>
+      <geom name="bowl_contact29" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_29"/>
+      <geom name="bowl_contact30" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_30"/>
+      <geom name="bowl_contact31" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_31"/>
+      <geom name="bowl_contact32" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_32"/>
+      <geom name="bowl_contact33" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_33"/>
+      <geom name="bowl_contact34" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_34"/>
+      <geom name="bowl_contact35" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_35"/>
+      <geom name="bowl_contact36" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" rgba="0.86 0.5 0.533 1" mesh="bowl_part_36"/>
+      
+      <freejoint name="bowl_anchor"/>
+      <site name="bowl_site" pos="0 0 0" size="0.001" rgba="0 0 0 0"/>
+    
+    </body> -->
+
+    <!-- <body name="cabinet" pos="0.915 0.58 0.01">
+      <geom size="0.195 0.555 0.019" pos="0 0 0.019" type="box" rgba="1 1 1 1"/>
+      <geom size="0.195 0.555 0.0075" pos="0 0 0.38" type="box" rgba="1 1 1 1"/>
+      <geom size="0.195 0.555 0.0075" pos="0 0 0.38" type="box" rgba="1 1 1 1"/>
+      <geom size="0.195 0.555 0.0075" pos="0 0 0.73" type="box" rgba="1 1 1 1"/>
+      <geom size="0.195 0.555 0.0075" pos="0 0 1.08" type="box" rgba="1 1 1 1"/>
+      <geom size="0.195 0.555 0.019" pos="0 0 1.451" type="box" rgba="1 1 1 1"/>
+
+      <geom size="0.195 0.019 0.735" pos="0 0.55 0.735" type="box" rgba="1 1 1 1"/>
+      <geom size="0.195 0.0075 0.735" pos="0 0.169 0.735" type="box" rgba="1 1 1 1"/>
+      <geom size="0.195 0.0075 0.735" pos="0 -0.169 0.735" type="box" rgba="1 1 1 1"/>
+      <geom size="0.195 0.019 0.735" pos="0 -0.55 0.735" type="box" rgba="1 1 1 1"/>
+
+      <body pos="-0.2 0 0.9875">
+        <body name="drawer_1" pos="-0.0075 0.003 0.005">
+          <joint range='0 0.3' type='slide' axis='-1 0 0' frictionloss="0.05"/>
+          <inertial pos="0.1 0 0" quat="1 0 0 0" mass="0.011566" diaginertia="0.000035528 0.000021045 0.000021045"/>
+
+          <geom size="0.005 0.007" pos="-0.002 0 0" euler="0 1.5708 0" type="cylinder" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" rgba=".1 .1 .1 1"/>
+          <geom size="0.010 0.002" pos="-0.012 0 0" euler="0 1.5708 0" type="cylinder" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" rgba=".1 .1 .1 1"/>
+
+          <geom size="0.0075 0.158 0.081" pos="0.015 -0.003 -0.005" type="box" rgba=".9 .9 .8 1"/>
+          <geom size="0.165 0.006 0.035" pos="0.181 0.144 -0.026" type="box" rgba=".9 .9 .8 1"/>
+          <geom size="0.165 0.006 0.035" pos="0.181 -0.144 -0.026" type="box" rgba=".9 .9 .8 1"/>
+          <geom size="0.006 0.14 0.035" pos="0.33 0 -0.026" type="box" rgba=".9 .9 .8 1"/>
+          <geom size="0.16 0.14 0.006" pos="0.175 0 -0.061" type="box" rgba=".9 .9 .8 1"/>
+
+          <site name="drawer_1_handle" pos='-0.01 0 0' euler="0 0 3.1416" size='0.001' type='sphere'/>
+        </body>
+      </body>
+
+      <body name="drawer_2" pos="-0.2 0 0.8225">
+        <joint range='0 0.9' type='slide' axis='-1 0 0' frictionloss="0.05"/>
+        <inertial pos="0.1 0 0" quat="1 0 0 0" mass="0.011566" diaginertia="0.000035528 0.000021045 0.000021045"/>
+
+        <geom size="0.005 0.015" pos="-0.015 0.065 0" euler="0 1.5708 0" type="cylinder" condim="4" solimp="2 1 0.01" solref="0.001 1" friction="1 0.005 0.0001" rgba=".1 .1 .1 1"/>
+        <geom size="0.005 0.015" pos="-0.015 -0.065 0" euler="0 1.5708 0" type="cylinder" condim="4" solimp="2 1 0.01" solref="0.001 1" friction="1 0.005 0.0001" rgba=".1 .1 .1 1"/>
+        <geom size="0.005 0.065" pos="-0.03 0 0" euler="1.5708 0 0" type="cylinder" condim="4" solimp="2 1 0.01" solref="0.001 1" friction="10 10 10" rgba=".1 .1 .1 1"/>
+
+        <geom size="0.0075 0.158 0.081" pos="0.0075 0 0" type="box" rgba=".9 .9 .8 1"/>
+        <geom size="0.165 0.006 0.035" pos="0.181 0.144 -0.026" type="box" rgba=".9 .9 .8 1"/>
+        <geom size="0.165 0.006 0.035" pos="0.181 -0.144 -0.026" type="box" rgba=".9 .9 .8 1"/>
+        <geom size="0.006 0.14 0.035" pos="0.33 0 -0.026" type="box" rgba=".9 .9 .8 1"/>
+        <geom size="0.16 0.14 0.006" pos="0.165 0 -0.061" type="box" rgba=".9 .9 .8 1"/>
+
+        <site name="drawer_2_handle" pos='-0.03 0 0' euler="0 0 3.1416" size='0.001' type='sphere'/>
+
+      </body>
+    </body> -->
+
+    <!-- ======= lab3 env ======= -->
+    <body name="table_60_120" pos="-0.18 0 0">
+      <!-- <geom size="0.3 0.6 0.01" pos="0 0 0.69" euler="0 0 1.5708" type="box" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" rgba="0.7529 0.6863 0.4235 1"/> -->
+      <geom size="0.5 0.75 0.01" pos="0 0 0.69" euler="0 0 1.5708" type="box" condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" material="tc_texture"/>
+      <geom size="0.02 0.02 0.34" pos=" 0.55  0.25 0.35" type="box" contype="0" conaffinity="0" rgba="0.15 0.15 0.15 1" />
+      <geom size="0.02 0.02 0.34" pos=" 0.55 -0.25 0.35" type="box" contype="0" conaffinity="0" rgba="0.15 0.15 0.15 1" />
+      <geom size="0.02 0.02 0.34" pos="-0.55  0.25 0.35" type="box" contype="0" conaffinity="0" rgba="0.15 0.15 0.15 1" />
+      <geom size="0.02 0.02 0.34" pos="-0.55 -0.25 0.35" type="box" contype="0" conaffinity="0" rgba="0.15 0.15 0.15 1" />
+    </body>
+
+    <!-- <body name="wall1" pos="1.5 0 0.69">
+      <geom size="2 2 0.005" pos="0 0 0" type="box" rgba="0.5 0.5 0.5 1" quat="0 1 0 1"/>
+    </body>
+
+    <body name="wall2" pos="1.3 -0.55 0.69">
+      <geom size="2 2 0.005" pos="0 0 0" type="box" rgba="0.5 0.5 0.5 1" euler="1.57 1.0 0"/>
+    </body>
+
+    <body name="wall3" pos="1.3 0.55 0.69">
+      <geom size="2 2 0.005" pos="0 0 0" type="box" rgba="0.5 0.5 0.5 1" euler="1.57 -1.0 0"/>
+    </body> -->
+
+    <!-- ======= camera ======= -->
+    <body name="viewpoint" pos="0.20 0 0.95">
+      <!-- <geom type="box" pos="0 0 0" size="0.1 0.2 0.3" rgba="1 1 0 1"/> -->
+    </body>
+
+    <camera name="fix_cam" mode="targetbody" target="viewpoint" pos="-0.52 0 1.0" fovy="72.02"/>
+    <camera name="track_cam" mode="targetbody" target="viewpoint" pos="-0.52 0 1.0" fovy="72.02"/>
+    <!-- <camera name="fix_cam" mode="targetbody" target="viewpoint" pos="-0.16 -0.624 1.0" fovy="72.02"/>
+    <camera name="track_cam" mode="targetbody" target="viewpoint" pos="-0.16 -0.624 1.0" fovy="72.02"/> -->
+    <!-- <camera name="angled_cam" pos="1.809 -0.389 0.770" xyaxes="0.288 0.958 -0.000 -0.399 0.120 0.909" fovy="42"/> -->
+
+
+    <!-- ======= AITBOT PLAY ======= -->
+    <body name="arm_pose" pos="0.47 0 0.70" euler="0 0 3.1416">
+      <body name="arm_base">
+        <geom type="box" pos="-0.02 0 0.005" size="0.0806 0.1375 0.0025" rgba="0.2 0.2 0.2 1"/>
+        <geom mesh="arm_base_0" pos="0 0 -0.0015" material="________________Emissive_White__1_2" class="visual"/>
+        <geom mesh="arm_base_1" material="Paint_Matte_Black" class="visual"/>
+        <body name="link1" pos="0 0 0.1172">
+          <inertial pos="7.9126e-05 -0.002527 -0.0041359" quat="0.696716 0.716558 0.0238919 -0.0236876" mass="0.54639" diaginertia="0.000346294 0.000325437 0.000286269"/>
+          <joint name="joint1" class="joint1"/>
+          <geom type="mesh" contype="0" conaffinity="0" density="0" rgba="0.1 0.1 0.1 1" mesh="link1"/>
+          <body name="link2" quat="0.135866 0.135867 -0.69393 0.693932">
+            <inertial pos="0.22493 0.0047721 0.008023" quat="-0.210875 0.632473 -0.273056 0.693506" mass="0.64621" diaginertia="0.00516535 0.00505042 0.000418626"/>
+            <joint name="joint2" class="joint2"/>
+            <geom type="box" pos="0.08 0.015 0" euler="0 0 0.15" size="0.11 0.03 0.04" rgba="1 0 0 0"/>
+            <geom type="box" pos="0.235 0.015 0" euler="0 0 -0.3" size="0.065 0.025 0.045" rgba="1 0 0 0"/>
+            <geom mesh="link2_0" material="Paint_Matte_Black" class="visual"/>
+            <geom mesh="link2_1" material="Paint_Metallic_Cool_Grey" class="visual"/>
+            <body name="link3" pos="0.27009 0 0" quat="0.192144 0 0 -0.981367">
+              <inertial pos="0.16813 -5.5576e-05 0.0031184" quat="0.511278 0.488423 0.489191 0.510617" mass="0.26829" diaginertia="0.0031527 0.0030951 0.000239403"/>
+              <joint name="joint3" class="joint3"/>
+              <geom type="box" pos="0.13 0 0" size="0.13 0.025 0.025" rgba="1 0 0 0"/>
+              <geom mesh="link3_0" material="Paint_Matte_Black" class="visual"/>
+              <geom mesh="link3_1" material="Paint_Metallic_Cool_Grey" class="visual"/>
+              <body name="link4" pos="0.29015 0 0" quat="-2.59734e-06 0.707105 2.59735e-06 0.707108">
+                <inertial pos="5.2436e-06 0.00040412 -0.03228" quat="0.999969 -0.000174762 -0.00792041 -6.98144e-05" mass="0.34876" diaginertia="0.000423574 0.000412 0.000126826"/>
+                <joint name="joint4" class="joint4"/>
+                <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="link4"/>
+                <body name="link5" quat="0.707105 0.707108 0 0">
+                  <inertial pos="8.3328e-06 0.026148 0.002525" quat="0.531568 0.4663 0.4663 0.531568" mass="0.36132" diaginertia="0.0004677 0.000432922 0.000178178"/>
+                  <joint name="joint5" class="joint5"/>
+                  <geom mesh="link5_0" material="Paint_Matte_Black" class="visual"/>
+                  <geom mesh="link5_1" material="Paint_Metallic_Cool_Grey" class="visual"/>
+                  <body name="link6" pos="0 0.23645 0" quat="0.499998 -0.5 0.5 0.500002">
+                    <body pos="-0.105 0 -0.12" euler="3.1416 0 1.5708">
+                      <camera name="eye" euler="-0.5236 0 0" fovy="72.5376526571421"/>
+                    </body>
+                    <inertial pos="-0.0047053 7.3857e-05 -0.12293" mass="0.53855" diaginertia="5e-05 5e-05 3.85e-05"/>
+                    <joint name="joint6" class="joint6"/>
+                    <geom type="mesh" rgba="0.1 0.1 0.1 1" mesh="link6"/>
+                    <site name="endpoint" pos='0 0 0' euler="0 -1.5708 0" size='0.001' type='sphere'/>
+                    <site name="tcp_site" pos='0 0 0' euler="0 -1.5708 0" size='0.001' type='sphere'/>
+                    <body name="right" pos="0 0 0">
+                      <inertial pos="-0.048742 0.0096369 0.00044322" quat="0.757393 0.0415116 0.0313705 0.650883" mass="0.0626" diaginertia="2.79281e-05 1.90181e-05 1.21737e-05"/>
+                      <joint name="endright" class='finger2'/>
+                      <geom condim="6" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" mesh="right" rgba="0.1 0.1 0.1 1"/>
+                      <!-- grasp check point of right finger-->
+                      <body name="right_tip" pos="0.0 0.0 0.0">
+                        <geom mass="0" type="box" size="0.004 0.0005 0.01" rgba="1 1 0 1" friction="0.7"/>
+                      </body>
+                    </body>
+                    <body name="left" pos="0 0 0">
+                      <inertial pos="-0.049039 -0.0096764 0.00038868" quat="0.650491 0.0296695 0.0398251 0.757889" mass="0.061803" diaginertia="2.74809e-05 1.88104e-05 1.19127e-05"/>
+                      <joint name="endleft" class='finger1'/>
+                      <geom condim="6" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" type="mesh" mesh="left" rgba="0.1 0.1 0.1 1"/>
+                      <!-- grasp check point of rleft finger-->
+                      <body name="left_tip" pos="0.0 0.0 0.0">
+                        <geom mass="0" type="box" size="0.004 0.0005 0.01" rgba="1 1 0 1" friction="0.7"/>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+
+  </worldbody>
+
+  <include file="airbot_play_options.xml"/>
+  
+  <equality>
+    <joint joint1='endleft' joint2='endright' polycoef='0 -1 0 0 0 '/>
+  </equality>
+
+  <!-- ======= actuator ======= -->
+  <!--<include file="airbot_play_control.xml"/> -->
+  
+  <!-- ======= sensor ======= -->
+  <sensor>
+    <jointpos name="joint1_pos" joint="joint1" />
+    <jointpos name="joint2_pos" joint="joint2" />
+    <jointpos name="joint3_pos" joint="joint3" />
+    <jointpos name="joint4_pos" joint="joint4" />
+    <jointpos name="joint5_pos" joint="joint5" />
+    <jointpos name="joint6_pos" joint="joint6" />
+    <tendonpos name="gripper_pos" tendon="gripper_gear" />
+
+    <jointvel name="joint1_vel" joint="joint1" />
+    <jointvel name="joint2_vel" joint="joint2" />
+    <jointvel name="joint3_vel" joint="joint3" />
+    <jointvel name="joint4_vel" joint="joint4" />
+    <jointvel name="joint5_vel" joint="joint5" />
+    <jointvel name="joint6_vel" joint="joint6" />
+    <tendonvel name="gripper_vel" tendon="gripper_gear" />
+
+    <jointactuatorfrc name="joint1_torque" joint="joint1" />
+    <jointactuatorfrc name="joint2_torque" joint="joint2" />
+    <jointactuatorfrc name="joint3_torque" joint="joint3" />
+    <jointactuatorfrc name="joint4_torque" joint="joint4" />
+    <jointactuatorfrc name="joint5_torque" joint="joint5" />
+    <jointactuatorfrc name="joint6_torque" joint="joint6" />
+    <jointactuatorfrc name="gripper_torque" joint="endright" />
+
+    <framepos name="endpoint_pos" objtype="site" objname="endpoint" reftype="body" refname="arm_base"/>
+    <framequat name="endpoint_quat" objtype="site" objname="endpoint" reftype="body" refname="arm_base"/>
+    <framelinvel name="endpoint_vel" objtype="site" objname="endpoint" reftype="body" refname="arm_base"/>
+    <gyro name="endpoint_gyro" site="endpoint"/>
+    <accelerometer name="endpoint_acc" site="endpoint" />
+  </sensor>
+
+  <!-- <keyframe>
+    <key name="ready" qpos='
+     -0.055 -0.547 0.905 1.599 -1.398 -1.599  0 0 
+     0 1.03 0.6988  1 0 0 0
+       0 0.85 0.7145  1 0 0 0
+      0 0'
+      ctrl="-0.055 -0.547 0.905 1.599 -1.398 -1.599  0"
+    />
+  </keyframe> -->
+
+</mujoco>
