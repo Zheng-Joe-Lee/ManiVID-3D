@@ -132,4 +132,4 @@ If you find this work useful, please cite:
 
 ## :heart: Acknowledgement
 
-This codebase is built upon [Maniwhere](https://github.com/gemcollector/maniwhere) (CoRL 2024, *Learning to Manipulate Anywhere: A Visual Generalizable Framework For Reinforcement Learning*). We sincerely thank the authors for open-sourcing their code and their great contributions to the community.
+This codebase is built upon [Maniwhere](https://gemcollector.github.io/maniwhere/) (CoRL 2024, *Learning to Manipulate Anywhere: A Visual Generalizable Framework For Reinforcement Learning*). We sincerely thank the authors for open-sourcing their code and their great contributions to the community.
